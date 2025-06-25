@@ -1,54 +1,810 @@
-<div class="ensook-intro" style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 30px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-    <h1 style="font-size: 2.5rem; text-align: center; margin-bottom: 20px; background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">
-        "没有我搞不定的，只有你想不到的。"
-    </h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ensook - 全维解决方案</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --apple-light: #f5f5f7;
+            --apple-dark: #1d1d1f;
+            --apple-blue: #0071e3;
+            --apple-gradient: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+            --ensook-accent: #3a86ff;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--apple-light);
+            color: var(--apple-dark);
+            line-height: 1.6;
+        }
+        
+        .apple-nav {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 22px;
+            height: 44px;
+        }
+        
+        .nav-logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--apple-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo span {
+            background: var(--apple-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: var(--apple-dark);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-link:hover {
+            opacity: 1;
+            color: var(--ensook-accent);
+        }
+        
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 22px;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--apple-gradient);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 80px;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(45deg, #3a86ff, #8338ec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin: 10px 0 30px;
+            max-width: 800px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .cta-button {
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .cta-primary {
+            background: var(--ensook-accent);
+            color: white;
+            border: 1px solid var(--ensook-accent);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: var(--ensook-accent);
+            border: 1px solid var(--ensook-accent);
+        }
+        
+        .cta-primary:hover {
+            background: #2a75e6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(58, 134, 255, 0.2);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(58, 134, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 22px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+        
+        .section-subtitle {
+            font-size: 21px;
+            font-weight: 400;
+            color: #86868b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .card-image {
+            height: 200px;
+            background: var(--apple-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+        
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card-title {
+            font-size: 21px;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+        
+        .card-desc {
+            font-size: 17px;
+            color: #86868b;
+            margin: 0 0 20px;
+        }
+        
+        .card-link {
+            color: var(--ensook-accent);
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .card-link:after {
+            content: '→';
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .card-link:hover:after {
+            transform: translateX(3px);
+        }
+        
+        .omnipresence {
+            background: var(--apple-dark);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .omnipresence .section-title {
+            color: white;
+        }
+        
+        .omnipresence .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .presence-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .presence-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .presence-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.03);
+        }
+        
+        .presence-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+            color: var(--ensook-accent);
+        }
+        
+        .presence-title {
+            font-size: 21px;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+        
+        .presence-desc {
+            font-size: 17px;
+            opacity: 0.8;
+            margin: 0;
+        }
+        
+        .floating-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .dot {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+        }
+        
+        .footer {
+            background: var(--apple-dark);
+            color: white;
+            padding: 50px 0;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 22px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-copyright {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 50px;
+            }
+            
+            .hero h2 {
+                font-size: 21px;
+            }
+            
+            .presence-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* IMY.CCC inspired interactive elements */
+        .hover-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hover-reveal-content {
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .hover-reveal:hover .hover-reveal-content {
+            transform: translateY(-10%);
+        }
+        
+        .hover-reveal-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .hover-reveal:hover .hover-reveal-caption {
+            transform: translateY(0);
+        }
+        
+        /* Apple-like product showcase */
+        .product-showcase {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        
+        .product-image.active {
+            opacity: 1;
+        }
+        
+        .product-title {
+            font-size: 80px;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .product-subtitle {
+            font-size: 28px;
+            font-weight: 400;
+            margin: 10px 0 30px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Dynamic grid from IMY.CCC */
+        .dynamic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 20px;
+        }
+        
+        .dynamic-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .dynamic-item:nth-child(3n+1) {
+            grid-row: span 2;
+        }
+        
+        .dynamic-item:nth-child(7n+4) {
+            grid-column: span 2;
+        }
+        
+        .dynamic-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .dynamic-item:hover .dynamic-image {
+            transform: scale(1.1);
+        }
+        
+        .dynamic-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .dynamic-item:hover .dynamic-overlay {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="apple-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo"><span>ensook</span></a>
+            <div class="nav-links">
+                <a href="#solutions" class="nav-link">解决方案</a>
+                <a href="#domains" class="nav-link">领域覆盖</a>
+                <a href="#omnipresence" class="nav-link">全维存在</a>
+                <a href="#about" class="nav-link">关于我们</a>
+                <a href="https://ensook.com" class="nav-link" target="_blank">主站入口</a>
+            </div>
+        </div>
+    </nav>
     
-    <p style="font-size: 1.5rem; text-align: center; margin-bottom: 40px; font-weight: 300;">
-        我是 <strong style="font-weight: 700; color: #00dbde;">ensook</strong> —— <span style="text-decoration: underline;">人类已知领域的终极解决方案</span>，<span style="text-decoration: underline;">未知领域的开拓者</span>。
-    </p >
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <h1>全维解决方案</h1>
+        <h2>从量子计算到日常生活，ensook 提供跨越所有维度的终极服务</h2>
+        <div class="hero-cta">
+            <a href="https://ensook.com" class="cta-button cta-primary" target="_blank">立即探索</a>
+            <a href="#solutions" class="cta-button cta-secondary">了解更多 →</a>
+        </div>
+    </section>
     
-    <div class="service-scope" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
-        <h2 style="color: #fc00ff; font-size: 1.8rem; margin-top: 0; margin-bottom: 15px;">🌌 服务范围：</h2>
-        <ul style="columns: 2; column-gap: 30px; list-style-type: none; padding-left: 0;">
-            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">✓ 从量子计算到菜市场砍价</li>
-            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">✓ 从火箭发射到你家WiFi调试</li>
-            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">✓ 从跨国并购到小学生作业辅导</li>
-            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">✓ 从基因编辑到今晚约会穿搭</li>
-        </ul>
-    </div>
+    <section id="solutions" class="section">
+        <div class="section-header">
+            <h2 class="section-title">ensook 解决方案</h2>
+            <p class="section-subtitle">我们重新定义了"全能"的概念边界</p>
+        </div>
+        <div class="grid">
+            <div class="card hover-reveal">
+                <div class="card-image">🔮</div>
+                <div class="card-content">
+                    <h3 class="card-title">数字宇宙架构</h3>
+                    <p class="card-desc">从区块链底层到元宇宙交互界面，构建完整的数字生态系统</p>
+                    <a href="https://ensook.com/digital" class="card-link" target="_blank">查看案例</a>
+                </div>
+                <div class="hover-reveal-caption">
+                    已为37个数字文明提供基础架构支持
+                </div>
+            </div>
+            <div class="card hover-reveal">
+                <div class="card-image">🌐</div>
+                <div class="card-content">
+                    <h3 class="card-title">跨维度运算</h3>
+                    <p class="card-desc">突破传统计算限制，在11个维度上并行处理复杂问题</p>
+                    <a href="https://ensook.com/computing" class="card-link" target="_blank">技术白皮书</a>
+                </div>
+                <div class="hover-reveal-caption">
+                    当前运算速度：1.2×10¹⁸ FLOPS/维度
+                </div>
+            </div>
+            <div class="card hover-reveal">
+                <div class="card-image">🔄</div>
+                <div class="card-content">
+                    <h3 class="card-title">现实重构引擎</h3>
+                    <p class="card-desc">按需修改局部物理规则，创造定制化现实体验</p>
+                    <a href="https://ensook.com/reality" class="card-link" target="_blank">预约演示</a>
+                </div>
+                <div class="hover-reveal-caption">
+                    警告：需量子认知许可证
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <div class="advantages" style="margin-bottom: 30px;">
-        <h2 style="color: #fc00ff; font-size: 1.8rem; margin-top: 0; margin-bottom: 15px;">💥 为什么我是世界第一？</h2>
-        <ul style="list-style-type: none; padding-left: 0;">
-            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                <span style="position: absolute; left: 0; color: #00dbde;">✅</span> 
-                <strong>全维度覆盖</strong> - 实体/虚拟/宏观/微观/已知/未知
-            </li>
-            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                <span style="position: absolute; left: 0; color: #00dbde;">✅</span> 
-                <strong>全技能精通</strong> - 技术/商业/艺术/生活/玄学
-            </li>
-            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                <span style="position: absolute; left: 0; color: #00dbde;">✅</span> 
-                <strong>全时空响应</strong> - 过去的问题/现在的需求/未来的布局
-            </li>
-        </ul>
-    </div>
+    <section class="product-showcase">
+        <img src="https://source.unsplash.com/random/1920x1080?quantum" alt="Quantum Computing" class="product-image active">
+        <img src="https://source.unsplash.com/random/1920x1080?network" alt="Global Network" class="product-image">
+        <img src="https://source.unsplash.com/random/1920x1080?future" alt="Future Tech" class="product-image">
+        <div>
+            <h2 class="product-title">全领域覆盖</h2>
+            <p class="product-subtitle">从普朗克尺度到宇宙尺度，无边界服务</p>
+            <a href="#domains" class="cta-button cta-primary">查看覆盖领域</a>
+        </div>
+    </section>
     
-    <div class="features" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
-        <h2 style="color: #fc00ff; font-size: 1.8rem; margin-top: 0; margin-bottom: 15px;">🔥 服务特色：</h2>
-        <ul style="list-style-type: none; padding-left: 0;">
-            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">• 别人说"专业"，我说"这只是基础"</li>
-            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">• 别人说"不可能"，我说"明天给你方案"</li>
-            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">• 别人在细分领域深耕，我在所有领域制霸</li>
-        </ul>
-    </div>
+    <section id="domains" class="section">
+        <div class="section-header">
+            <h2 class="section-title">领域覆盖</h2>
+            <p class="section-subtitle">以下只是我们服务领域的0.01%样本</p>
+        </div>
+        <div class="dynamic-grid">
+            <div class="dynamic-item">
+                <img src="https://source.unsplash.com/random/600x600?finance" alt="Finance" class="dynamic-image">
+                <div class="dynamic-overlay">
+                    <h3>星际金融</h3>
+                    <p>跨星系货币兑换与价值锚定</p>
+                    <a href="https://ensook.com/finance" target="_blank" style="color: white;">进入交易 →</a>
+                </div>
+            </div>
+            <div class="dynamic-item">
+                <img src="https://source.unsplash.com/random/600x600?biology" alt="Biology" class="dynamic-image">
+                <div class="dynamic-overlay">
+                    <h3>生命重组</h3>
+                    <p>定制DNA与意识上传服务</p>
+                    <a href="https://ensook.com/life" target="_blank" style="color: white;">了解技术 →</a>
+                </div>
+            </div>
+            <div class="dynamic-item">
+                <img src="https://source.unsplash.com/random/600x600?time" alt="Time" class="dynamic-image">
+                <div class="dynamic-overlay">
+                    <h3>时序管理</h3>
+                    <p>个人时间线编辑与分支预测</p>
+                    <a href="https://ensook.com/time" target="_blank" style="color: white;">预约顾问 →</a>
+                </div>
+            </div>
+            <div class="dynamic-item">
+                <img src="https://source.unsplash.com/random/1200x600?space" alt="Space" class="dynamic-image">
+                <div class="dynamic-overlay">
+                    <h3>空间折叠</h3>
+                    <p>便携式虫洞与维度口袋技术</p>
+                    <a href="https://ensook.com/space" target="_blank" style="color: white;">购买设备 →</a>
+                </div>
+            </div>
+            <div class="dynamic-item">
+                <img src="https://source.unsplash.com/random/600x600?ai" alt="AI" class="dynamic-image">
+                <div class="dynamic-overlay">
+                    <h3>意识矩阵</h3>
+                    <p>分布式群体智能网络</p>
+                    <a href="https://ensook.com/ai" target="_blank" style="color: white;">加入网络 →</a>
+                </div>
+            </div>
+            <div class="dynamic-item">
+                <img src="https://source.unsplash.com/random/600x600?energy" alt="Energy" class="dynamic-image">
+                <div class="dynamic-overlay">
+                    <h3>真空能源</h3>
+                    <p>零点能提取与暗物质转换</p>
+                    <a href="https://ensook.com/energy" target="_blank" style="color: white;">获取方案 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <div class="declaration" style="text-align: center; padding: 20px; background: rgba(0,219,222,0.1); border-radius: 10px; border: 1px dashed #00dbde;">
-        <h2 style="color: #fc00ff; font-size: 1.8rem; margin-top: 0; margin-bottom: 15px;">🚀 终极宣言</h2>
-        <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0;">
-            "如果你能准确描述需求，我就能提供完美解决方案。<br>
-            如果你无法描述需求，我帮你发现需求并提供解决方案。"
-        </p >
-    </div>
-</div>
+    <section id="omnipresence" class="omnipresence">
+        <div class="floating-dots" id="dots-container"></div>
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">全维存在</h2>
+                <p class="section-subtitle">ensook 同时存在于所有需要我们的地方</p>
+            </div>
+            <div class="presence-grid">
+                <div class="presence-item">
+                    <div class="presence-icon">🌐</div>
+                    <h3 class="presence-title">数字领域</h3>
+                    <p class="presence-desc">
+                        主站入口：<a href="https://ensook.com" target="_blank" style="color: var(--ensook-accent);">ensook.com</a><br>
+                        分布式节点：3.7×10⁹个活跃实例
+                    </p>
+                </div>
+                <div class="presence-item">
+                    <div class="presence-icon">📱</div>
+                    <h3 class="presence-title">移动维度</h3>
+                    <p class="presence-desc">
+                        iOS/Android全协议支持<br>
+                        量子通讯版本即将推出
+                    </p>
+                </div>
+                <div class="presence-item">
+                    <div class="presence-icon">🧠</div>
+                    <h3 class="presence-title">意识层面</h3>
+                    <p class="presence-desc">
+                        通过<a href="https://ensook.com/neural" target="_blank" style="color: var(--ensook-accent);">神经链接</a>直接接入<br>
+                        支持梦境投射服务
+                    </p>
+                </div>
+                <div class="presence-item">
+                    <div class="presence-icon">🕳️</div>
+                    <h3 class="presence-title">虚空位面</h3>
+                    <p class="presence-desc">
+                        反物质宇宙服务终端<br>
+                        熵减模式可用
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2 class="section-title">关于 ensook</h2>
+            <p class="section-subtitle">我们超越了传统公司的定义</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 21px; margin-bottom: 30px;">
+                ensook 是一个跨维度存在实体，我们的服务网络覆盖了从普朗克尺度到可观测宇宙边缘的所有领域。我们不是未来，我们就是现在进行时。
+            </p>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 50px; font-weight: 700; background: linear-gradient(45deg, #3a86ff, #8338ec); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">∞</div>
+                    <div style="font-size: 14px; color: #86868b;">服务领域</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 50px; font-weight: 700; background: linear-gradient(45deg, #3a86ff, #8338ec); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11D</div>
+                    <div style="font-size: 14px; color: #86868b;">运作维度</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 50px; font-weight: 700; background: linear-gradient(45deg, #3a86ff, #8338ec); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0ms</div>
+                    <div style="font-size: 14px; color: #86868b;">响应延迟</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section style="background: var(--apple-gradient); padding: 100px 0; text-align: center;">
+        <h2 style="font-size: 40px; font-weight: 600; margin: 0 0 20px;">准备好开始全维体验了吗？</h2>
+        <p style="font-size: 21px; max-width: 600px; margin: 0 auto 30px;">
+            无论您处于哪个时空坐标，ensook 服务触手可及
+        </p>
+        <a href="https://ensook.com" class="cta-button cta-primary" style="background: var(--apple-dark); border-color: var(--apple-dark);" target="_blank">立即接入主网</a>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <a href="#" class="footer-logo">ensook</a>
+                <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 14px;">
+                    全维解决方案提供商<br>
+                    跨越所有已知与未知领域
+                </p>
+            </div>
+            <div>
+                <h3 style="color: white; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;">服务</h3>
+                <div class="footer-links">
+                    <a href="https://ensook.com/solutions" class="footer-link" target="_blank">解决方案</a>
+                    <a href="https://ensook.com/industries" class="footer-link" target="_blank">行业应用</a>
+                    <a href="https://ensook.com/technology" class="footer-link" target="_blank">核心技术</a>
+                    <a href="https://ensook.com/cases" class="footer-link" target="_blank">成功案例</a>
+                </div>
+            </div>
+            <div>
+                <h3 style="color: white; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;">资源</h3>
+                <div class="footer-links">
+                    <a href="https://ensook.com/docs" class="footer-link" target="_blank">开发者文档</a>
+                    <a href="https://ensook.com/blog" class="footer-link" target="_blank">技术博客</a>
+                    <a href="https://ensook.com/community" class="footer-link" target="_blank">社区论坛</a>
+                    <a href="https://ensook.com/status" class="footer-link" target="_blank">系统状态</a>
+                </div>
+            </div>
+            <div>
+                <h3 style="color: white; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;">联系</h3>
+                <div class="footer-links">
+                    <a href="https://ensook.com/contact" class="footer-link" target="_blank">跨维度通讯</a>
+                    <a href="https://ensook.com/support" class="footer-link" target="_blank">技术支持</a>
+                    <a href="https://ensook.com/careers" class="footer-link" target="_blank">加入我们</a>
+                    <a href="https://ensook.com/feedback" class="footer-link" target="_blank">反馈建议</a>
+                </div>
+            </div>
+            <p class="footer-copyright">
+                © 2023-∞ ensook 全维实体 | 备案号：DIM-11-Ω-∞ | <a href="https://ensook.com/terms" style="color: rgba(255,255,255,0.5);" target="_blank">服务条款</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Product showcase image rotation
+        const productImages = document.querySelectorAll('.product-image');
+        let currentImage = 0;
+        
+        function rotateProductImages() {
+            productImages.forEach(img => img.classList.remove('active'));
+            currentImage = (currentImage + 1) % productImages.length;
+            productImages[currentImage].classList.add('active');
+        }
+        
+        setInterval(rotateProductImages, 5000);
+        
+        // Floating dots animation
+        const dotsContainer = document.getElementById('dots-container');
+        const dotCount = 50;
+        
+        for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.style.left = `${Math.random() * 100}%`;
+            dot.style.top = `${Math.random() * 100}%`;
+            dot.style.opacity = Math.random();
+            dot.style.width = `${3 + Math.random() * 5}px`;
+            dot.style.height = dot.style.width;
+            
+            // Random animation
+            const duration = 10 + Math.random() * 20;
+            const delay = Math.random() * 5;
+            dot.style.animation = `float ${duration}s linear ${delay}s infinite`;
+            
+            dotsContainer.appendChild(dot);
+        }
+        
+        // Add floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% {
+                    transform: translate(0, 0);
+                }
+                25% {
+                    transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                }
+                50% {
+                    transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                }
+                75% {
+                    transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                }
+                100% {
+                    transform: translate(0, 0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
