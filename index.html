@@ -205,7 +205,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 40px;
+            font-size: 80px;
         }
         
         .card-content {
@@ -278,7 +278,7 @@
         }
         
         .presence-icon {
-            font-size: 30px;
+            font-size: 50px;
             margin-bottom: 15px;
             color: var(--ensook-accent);
         }
@@ -372,6 +372,10 @@
             .presence-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .card-image {
+                font-size: 60px;
+            }
         }
         
         /* IMY.CCC inspired interactive elements */
@@ -415,34 +419,25 @@
             overflow: hidden;
         }
         
-        .product-image {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 1s;
-        }
-        
-        .product-image.active {
-            opacity: 1;
+        .product-emoji {
+            font-size: 120px;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.5s;
         }
         
         .product-title {
             font-size: 80px;
             font-weight: 700;
             margin: 0;
-            color: white;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            color: var(--apple-dark);
         }
         
         .product-subtitle {
             font-size: 28px;
             font-weight: 400;
             margin: 10px 0 30px;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: #86868b;
         }
         
         /* Dynamic grid from IMY.CCC */
@@ -457,6 +452,11 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
+            background: var(--apple-gradient);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .dynamic-item:nth-child(3n+1) {
@@ -467,15 +467,14 @@
             grid-column: span 2;
         }
         
-        .dynamic-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .dynamic-emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
             transition: transform 0.5s;
         }
         
-        .dynamic-item:hover .dynamic-image {
-            transform: scale(1.1);
+        .dynamic-item:hover .dynamic-emoji {
+            transform: scale(1.2);
         }
         
         .dynamic-overlay {
@@ -498,13 +497,13 @@
 <body>
     <nav class="apple-nav">
         <div class="nav-container">
-            <a href="#" class="nav-logo"><span>ensook</span></a>
+            <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="nav-logo"><span>ensook</span></a>
             <div class="nav-links">
-                <a href="#solutions" class="nav-link">解决方案</a>
-                <a href="#domains" class="nav-link">领域覆盖</a>
-                <a href="#omnipresence" class="nav-link">全维存在</a>
-                <a href="#about" class="nav-link">关于我们</a>
-                <a href="https://ensook.com" class="nav-link" target="_blank">主站入口</a>
+                <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3#solutions" class="nav-link">解决方案</a>
+                <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3#domains" class="nav-link">领域覆盖</a>
+                <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3#omnipresence" class="nav-link">全维存在</a>
+                <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3#about" class="nav-link">关于我们</a>
+                <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="nav-link" target="_blank">主站入口</a>
             </div>
         </div>
     </nav>
@@ -514,8 +513,8 @@
         <h1>全维解决方案</h1>
         <h2>从量子计算到日常生活，ensook 提供跨越所有维度的终极服务</h2>
         <div class="hero-cta">
-            <a href="https://ensook.com" class="cta-button cta-primary" target="_blank">立即探索</a>
-            <a href="#solutions" class="cta-button cta-secondary">了解更多 →</a>
+            <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="cta-button cta-primary" target="_blank">立即探索</a>
+            <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3#solutions" class="cta-button cta-secondary">了解更多 →</a>
         </div>
     </section>
     
@@ -530,7 +529,7 @@
                 <div class="card-content">
                     <h3 class="card-title">数字宇宙架构</h3>
                     <p class="card-desc">从区块链底层到元宇宙交互界面，构建完整的数字生态系统</p>
-                    <a href="https://ensook.com/digital" class="card-link" target="_blank">查看案例</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="card-link" target="_blank">查看案例</a>
                 </div>
                 <div class="hover-reveal-caption">
                     已为37个数字文明提供基础架构支持
@@ -541,7 +540,7 @@
                 <div class="card-content">
                     <h3 class="card-title">跨维度运算</h3>
                     <p class="card-desc">突破传统计算限制，在11个维度上并行处理复杂问题</p>
-                    <a href="https://ensook.com/computing" class="card-link" target="_blank">技术白皮书</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="card-link" target="_blank">技术白皮书</a>
                 </div>
                 <div class="hover-reveal-caption">
                     当前运算速度：1.2×10¹⁸ FLOPS/维度
@@ -552,7 +551,7 @@
                 <div class="card-content">
                     <h3 class="card-title">现实重构引擎</h3>
                     <p class="card-desc">按需修改局部物理规则，创造定制化现实体验</p>
-                    <a href="https://ensook.com/reality" class="card-link" target="_blank">预约演示</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="card-link" target="_blank">预约演示</a>
                 </div>
                 <div class="hover-reveal-caption">
                     警告：需量子认知许可证
@@ -562,14 +561,10 @@
     </section>
     
     <section class="product-showcase">
-        <img src="https://source.unsplash.com/random/1920x1080?quantum" alt="Quantum Computing" class="product-image active">
-        <img src="https://source.unsplash.com/random/1920x1080?network" alt="Global Network" class="product-image">
-        <img src="https://source.unsplash.com/random/1920x1080?future" alt="Future Tech" class="product-image">
-        <div>
-            <h2 class="product-title">全领域覆盖</h2>
-            <p class="product-subtitle">从普朗克尺度到宇宙尺度，无边界服务</p>
-            <a href="#domains" class="cta-button cta-primary">查看覆盖领域</a>
-        </div>
+        <div class="product-emoji">🌌</div>
+        <h2 class="product-title">全领域覆盖</h2>
+        <p class="product-subtitle">从普朗克尺度到宇宙尺度，无边界服务</p>
+        <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3#domains" class="cta-button cta-primary">查看覆盖领域</a>
     </section>
     
     <section id="domains" class="section">
@@ -579,51 +574,51 @@
         </div>
         <div class="dynamic-grid">
             <div class="dynamic-item">
-                <img src="https://source.unsplash.com/random/600x600?finance" alt="Finance" class="dynamic-image">
+                <div class="dynamic-emoji">💸</div>
                 <div class="dynamic-overlay">
                     <h3>星际金融</h3>
                     <p>跨星系货币兑换与价值锚定</p>
-                    <a href="https://ensook.com/finance" target="_blank" style="color: white;">进入交易 →</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: white;">进入交易 →</a>
                 </div>
             </div>
             <div class="dynamic-item">
-                <img src="https://source.unsplash.com/random/600x600?biology" alt="Biology" class="dynamic-image">
+                <div class="dynamic-emoji">🧬</div>
                 <div class="dynamic-overlay">
                     <h3>生命重组</h3>
                     <p>定制DNA与意识上传服务</p>
-                    <a href="https://ensook.com/life" target="_blank" style="color: white;">了解技术 →</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: white;">了解技术 →</a>
                 </div>
             </div>
             <div class="dynamic-item">
-                <img src="https://source.unsplash.com/random/600x600?time" alt="Time" class="dynamic-image">
+                <div class="dynamic-emoji">⏳</div>
                 <div class="dynamic-overlay">
                     <h3>时序管理</h3>
                     <p>个人时间线编辑与分支预测</p>
-                    <a href="https://ensook.com/time" target="_blank" style="color: white;">预约顾问 →</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: white;">预约顾问 →</a>
                 </div>
             </div>
             <div class="dynamic-item">
-                <img src="https://source.unsplash.com/random/1200x600?space" alt="Space" class="dynamic-image">
+                <div class="dynamic-emoji">🌀</div>
                 <div class="dynamic-overlay">
                     <h3>空间折叠</h3>
                     <p>便携式虫洞与维度口袋技术</p>
-                    <a href="https://ensook.com/space" target="_blank" style="color: white;">购买设备 →</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: white;">购买设备 →</a>
                 </div>
             </div>
             <div class="dynamic-item">
-                <img src="https://source.unsplash.com/random/600x600?ai" alt="AI" class="dynamic-image">
+                <div class="dynamic-emoji">🤖</div>
                 <div class="dynamic-overlay">
                     <h3>意识矩阵</h3>
                     <p>分布式群体智能网络</p>
-                    <a href="https://ensook.com/ai" target="_blank" style="color: white;">加入网络 →</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: white;">加入网络 →</a>
                 </div>
             </div>
             <div class="dynamic-item">
-                <img src="https://source.unsplash.com/random/600x600?energy" alt="Energy" class="dynamic-image">
+                <div class="dynamic-emoji">⚡</div>
                 <div class="dynamic-overlay">
                     <h3>真空能源</h3>
                     <p>零点能提取与暗物质转换</p>
-                    <a href="https://ensook.com/energy" target="_blank" style="color: white;">获取方案 →</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: white;">获取方案 →</a>
                 </div>
             </div>
         </div>
@@ -641,7 +636,7 @@
                     <div class="presence-icon">🌐</div>
                     <h3 class="presence-title">数字领域</h3>
                     <p class="presence-desc">
-                        主站入口：<a href="https://ensook.com" target="_blank" style="color: var(--ensook-accent);">ensook.com</a><br>
+                        主站入口：<a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: var(--ensook-accent);">FlowUs 中心</a><br>
                         分布式节点：3.7×10⁹个活跃实例
                     </p>
                 </div>
@@ -657,7 +652,7 @@
                     <div class="presence-icon">🧠</div>
                     <h3 class="presence-title">意识层面</h3>
                     <p class="presence-desc">
-                        通过<a href="https://ensook.com/neural" target="_blank" style="color: var(--ensook-accent);">神经链接</a>直接接入<br>
+                        通过<a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" target="_blank" style="color: var(--ensook-accent);">神经链接</a>直接接入<br>
                         支持梦境投射服务
                     </p>
                 </div>
@@ -704,13 +699,13 @@
         <p style="font-size: 21px; max-width: 600px; margin: 0 auto 30px;">
             无论您处于哪个时空坐标，ensook 服务触手可及
         </p>
-        <a href="https://ensook.com" class="cta-button cta-primary" style="background: var(--apple-dark); border-color: var(--apple-dark);" target="_blank">立即接入主网</a>
+        <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="cta-button cta-primary" style="background: var(--apple-dark); border-color: var(--apple-dark);" target="_blank">立即接入主网</a>
     </section>
     
     <footer class="footer">
         <div class="footer-container">
             <div>
-                <a href="#" class="footer-logo">ensook</a>
+                <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-logo">ensook</a>
                 <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 14px;">
                     全维解决方案提供商<br>
                     跨越所有已知与未知领域
@@ -719,49 +714,37 @@
             <div>
                 <h3 style="color: white; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;">服务</h3>
                 <div class="footer-links">
-                    <a href="https://ensook.com/solutions" class="footer-link" target="_blank">解决方案</a>
-                    <a href="https://ensook.com/industries" class="footer-link" target="_blank">行业应用</a>
-                    <a href="https://ensook.com/technology" class="footer-link" target="_blank">核心技术</a>
-                    <a href="https://ensook.com/cases" class="footer-link" target="_blank">成功案例</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">解决方案</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">行业应用</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">核心技术</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">成功案例</a>
                 </div>
             </div>
             <div>
                 <h3 style="color: white; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;">资源</h3>
                 <div class="footer-links">
-                    <a href="https://ensook.com/docs" class="footer-link" target="_blank">开发者文档</a>
-                    <a href="https://ensook.com/blog" class="footer-link" target="_blank">技术博客</a>
-                    <a href="https://ensook.com/community" class="footer-link" target="_blank">社区论坛</a>
-                    <a href="https://ensook.com/status" class="footer-link" target="_blank">系统状态</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">开发者文档</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">技术博客</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">社区论坛</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">系统状态</a>
                 </div>
             </div>
             <div>
                 <h3 style="color: white; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;">联系</h3>
                 <div class="footer-links">
-                    <a href="https://ensook.com/contact" class="footer-link" target="_blank">跨维度通讯</a>
-                    <a href="https://ensook.com/support" class="footer-link" target="_blank">技术支持</a>
-                    <a href="https://ensook.com/careers" class="footer-link" target="_blank">加入我们</a>
-                    <a href="https://ensook.com/feedback" class="footer-link" target="_blank">反馈建议</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">跨维度通讯</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">技术支持</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">加入我们</a>
+                    <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" class="footer-link" target="_blank">反馈建议</a>
                 </div>
             </div>
             <p class="footer-copyright">
-                © 2023-∞ ensook 全维实体 | 备案号：DIM-11-Ω-∞ | <a href="https://ensook.com/terms" style="color: rgba(255,255,255,0.5);" target="_blank">服务条款</a>
+                © 2023-∞ ensook 全维实体 | 备案号：DIM-11-Ω-∞ | <a href="https://flowus.cn/ensook/share/6cce5090-55d4-413d-bd3b-ff216c3f36d3" style="color: rgba(255,255,255,0.5);" target="_blank">服务条款</a>
             </p>
         </div>
     </footer>
     
     <script>
-        // Product showcase image rotation
-        const productImages = document.querySelectorAll('.product-image');
-        let currentImage = 0;
-        
-        function rotateProductImages() {
-            productImages.forEach(img => img.classList.remove('active'));
-            currentImage = (currentImage + 1) % productImages.length;
-            productImages[currentImage].classList.add('active');
-        }
-        
-        setInterval(rotateProductImages, 5000);
-        
         // Floating dots animation
         const dotsContainer = document.getElementById('dots-container');
         const dotCount = 50;
